@@ -1,29 +1,31 @@
 /*
  * This script is created for the GreedyCraft modpack by TCreopargh.
  * You may NOT use this script in any other publicly distributed modpack without my permission.
- */
-
+ *
+*/
 #priority 90
-#no_fix_recipe_book
 
 import crafttweaker.event.PlayerLoggedInEvent;
 import crafttweaker.event.IPlayerEvent;
 import crafttweaker.event.PlayerRespawnEvent;
 import crafttweaker.event.PlayerTickEvent;
+
+import crafttweaker.player.IPlayer;
+import crafttweaker.world.IWorld;
+import crafttweaker.world.IFacing;
+import crafttweaker.world.IBlockPos;
 import crafttweaker.data.IData;
 import crafttweaker.damage.IDamageSource;
 import crafttweaker.entity.IEntityLivingBase;
-import crafttweaker.player.IPlayer;
 import crafttweaker.util.Position3f;
 import crafttweaker.block.IBlock;
-import crafttweaker.world.IBlockPos;
 import crafttweaker.block.IBlockState;
 import crafttweaker.potions.IPotionEffect;
-import crafttweaker.world.IFacing;
 import crafttweaker.command.ICommandSender;
 import crafttweaker.text.ITextComponent;
 import crafttweaker.chat.IChatMessage;
 
+import mods.contenttweaker.Commands;
 import mods.ctutils.utils.Math;
 import mods.ctutils.world.IGameRules;
 import mods.ctintegration.data.DataUtil;
@@ -91,4 +93,10 @@ events.onPlayerLoggedIn(function (event as PlayerLoggedInEvent) {
     server.commandManager.executeCommand(server, "/difficulty hard");
 
     server.commandManager.executeCommand(server, "/advancement revoke " + player.name + " through greedycraft:elysia/root");
+});
+
+events.onPlayerLoggedIn(function (event as PlayerLoggedInEvent) {
+    var player as IPlayer = event.player;
+    var world as IWorld = player.world;
+	Commands.call("solarflux reload", player, world, false, true);
 });
