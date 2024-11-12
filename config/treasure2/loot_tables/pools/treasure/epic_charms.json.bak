@@ -1,8 +1,0 @@
-{
-	"version": "2.0",
-	"pools": [{
-		"name": "epic_charms",
-		"rolls": 1,
-		"entries": []
-	}]
-}
