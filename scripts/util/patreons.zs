@@ -3,6 +3,8 @@
  * You may NOT use this script in any other publicly distributed modpack without my permission. 
  */ 
 
+//此脚本由mcmod百科用户QQ酱491595更改/编写
+
 #priority 32200
 #no_fix_recipe_book
 
